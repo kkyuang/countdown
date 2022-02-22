@@ -1,16 +1,56 @@
 <html>
-    <body>
-        <div id="clock" style="position: absolute; ">
-            <div id="top">
-                <span id="year"></span>
-                <span id="month"></span>
-                <span id="date"></span>
-            </div>
-            <div id="bottom">
-                <span id="hour"></span>
-                <span id="minute"></span>
-                <span id="second"></span>
-            </div>
+
+<head>
+    <meta charset="utf-8">
+</head>
+<style>
+    /*@import url(http://fonts.googleapis.com/earlyaccess/notosanskr.css);
+
+    body{
+        font-family: 'Noto Sans Korean', sans-serif;
+        color: black;
+    }*/
+
+    @font-face{
+	    src: url("./font/AppleSDGothicNeoL.woff");
+        font-family: "Apple SD 산돌고딕 Neo"; 
+    }
+    body{font-family:'Apple SD 산돌고딕 Neo'}
+
+</style>
+<script>
+    window.onload = function () {
+        var top = document.getElementById("ymd");
+        var hms = document.getElementById("hms");
+
+        function getClock() {
+            var d = new Date();
+            var y = String(d.getFullYear());
+            var mon = String(d.getMonth() + 1);
+            var day = String(d.getDate()).padStart(2, "0");
+            var h = String(d.getHours()).padStart(2, "0");
+            var m = String(d.getMinutes()).padStart(2, "0");
+            var s = String(d.getSeconds()).padStart(2, "0");
+
+            ymd.innerHTML = `${y}년 ${mon}월 ${day}일`;
+            hms.innerHTML = `${h}:${m}:${s}`;
+        }
+
+        getClock(); //맨처음에 한번 실행
+        setInterval(getClock, 1000);
+    }   
+</script>
+
+<body>
+    <div id="clock" style="position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); text-align: center; font-size: 7vw;
+    -webkit-user-select:none; -moz-user-select:none; -ms-user-select:none; user-select:none">
+        <div id="top">
+            <span id="ymd"></span>
         </div>
-    </body>
+        <div id="bottom">
+            <span id="hms"></span>
+        </div>
+    </div>
+</body>
+
 </html>
