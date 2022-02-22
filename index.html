@@ -30,6 +30,7 @@
 
 </style>
 <script>
+    var isDarkMode = false;
     window.onload = function () {
         var top = document.getElementById("ymd");
         var hms = document.getElementById("hms");
@@ -50,6 +51,23 @@
         getClock(); //맨처음에 한번 실행
         setInterval(getClock, 1000);
     }   
+    function changDarkMode(){
+        var body = document.body;
+        var btn = document.getElementById("darkBtn");
+        if(isDarkMode){
+            isDarkMode = false;
+            body.style.color = '#000000'
+            body.style.backgroundColor = 'white'
+            btn.innerHTML = '라이트모드';
+        }
+        else{
+            isDarkMode = true;
+            body.style.color = 'white'
+            body.style.backgroundColor = '#000000'
+            isDarkMode = true;
+            btn.innerHTML = '다크모드';
+        }
+    }
 </script>
 
 <body>
@@ -65,7 +83,7 @@
 
     <div id="btns" style="margin-top: 1000%; text-align: center; font-size: 7vw;
     -webkit-user-select:none; -moz-user-select:none; -ms-user-select:none; user-select:none">
-        <button>다크모드</button>
+        <button onclick="changDarkMode()" id="darkBtn">다크모드</button>
     </div>
 </body>
 
