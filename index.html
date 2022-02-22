@@ -14,10 +14,12 @@
     @font-face{
 	    src: url("./font/AppleSDGothicNeoL.woff");
         font-family: "Apple SD 산돌고딕 Neo"; 
+        unicode-range:U+AC00-U+D7A3;
     }
     @font-face{
 	    src: url("./font/helvetica-rmagid/Helvetica\ Light.ttf");
         font-family: "helvetica"; 
+        unicode-range:U+0030-0039;
     }
     body{font-family:'Apple SD 산돌고딕 Neo', "helvetica"}
 
@@ -48,7 +50,7 @@
 <body>
     <div id="clock" style="position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); text-align: center; font-size: 7vw;
     -webkit-user-select:none; -moz-user-select:none; -ms-user-select:none; user-select:none">
-        <div id="top">
+        <div id="top" style="margin-bottom: 5px;">
             <span id="ymd"></span>
         </div>
         <div id="bottom">
